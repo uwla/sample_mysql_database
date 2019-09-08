@@ -19,7 +19,7 @@ USE `w3schools`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Table structure for table `Categories`
 --
 
 CREATE TABLE `Categories` (
@@ -29,10 +29,10 @@ CREATE TABLE `Categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `categories`
+-- Dumping data for table `Categories`
 --
 
-INSERT INTO `categories` (`CategoryID`, `CategoryName`, `Description`) VALUES
+INSERT INTO `Categories` (`CategoryID`, `CategoryName`, `Description`) VALUES
 (1, 'Beverages', 'Soft drinks, coffees, teas, beers, and ales'),
 (2, 'Condiments', 'Sweet and savory sauces, relishes, spreads, and seasonings'),
 (3, 'Confections', 'Desserts, candies, and sweet breads'),
@@ -45,7 +45,7 @@ INSERT INTO `categories` (`CategoryID`, `CategoryName`, `Description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Table structure for table `Customers`
 --
 
 CREATE TABLE `Customers` (
@@ -59,10 +59,10 @@ CREATE TABLE `Customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `customers`
+-- Dumping data for table `Customers`
 --
 
-INSERT INTO `customers` (`CustomerID`, `CustomerName`, `ContactName`, `Address`, `City`, `PostalCode`, `Country`) VALUES
+INSERT INTO `Customers` (`CustomerID`, `CustomerName`, `ContactName`, `Address`, `City`, `PostalCode`, `Country`) VALUES
 (1, 'Alfreds Futterkiste', 'Maria Anders', 'Obere Str. 57', 'Berlin', '12209', 'Germany'),
 (2, 'Ana Trujillo Emparedados y helados', 'Ana Trujillo', 'Avda. de la Constitución 2222', 'México D.F.', '05021', 'Mexico'),
 (3, 'Antonio Moreno Taquería', 'Antonio Moreno', 'Mataderos 2312', 'México D.F.', '05023', 'Mexico'),
@@ -158,7 +158,7 @@ INSERT INTO `customers` (`CustomerID`, `CustomerName`, `ContactName`, `Address`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employees`
+-- Table structure for table `Employees`
 --
 
 CREATE TABLE `Employees` (
@@ -171,10 +171,10 @@ CREATE TABLE `Employees` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `employees`
+-- Dumping data for table `Employees`
 --
 
-INSERT INTO `employees` (`EmployeeID`, `LastName`, `FirstName`, `BirthDate`, `Photo`, `Notes`) VALUES
+INSERT INTO `Employees` (`EmployeeID`, `LastName`, `FirstName`, `BirthDate`, `Photo`, `Notes`) VALUES
 (1, 'Davolio', 'Nancy', '1968-12-08', 'EmpID1.pic', 'Education includes a BA in psychology from Colorado State University. She also completed (The Art of the Cold Call). Nancy is a member of \'Toastmasters International\'.'),
 (2, 'Fuller', 'Andrew', '1952-02-19', 'EmpID2.pic', 'Andrew received his BTS commercial and a Ph.D. in international marketing from the University of Dallas. He is fluent in French and Italian and reads German. He joined the company as a sales representative, was promoted to sales manager and was then named vice president of sales. Andrew is a member of the Sales Management Roundtable, the Seattle Chamber of Commerce, and the Pacific Rim Importers Association.'),
 (3, 'Leverling', 'Janet', '1963-08-30', 'EmpID3.pic', 'Janet has a BS degree in chemistry from Boston College). She has also completed a certificate program in food retailing management. Janet was hired as a sales associate and was promoted to sales representative.'),
@@ -189,7 +189,7 @@ INSERT INTO `employees` (`EmployeeID`, `LastName`, `FirstName`, `BirthDate`, `Ph
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Table structure for table `Orders`
 --
 
 CREATE TABLE `Orders` (
@@ -201,10 +201,10 @@ CREATE TABLE `Orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `orders`
+-- Dumping data for table `Orders`
 --
 
-INSERT INTO `orders` (`OrderID`, `CustomerID`, `EmployeeID`, `OrderDate`, `ShipperID`) VALUES
+INSERT INTO `Orders` (`OrderID`, `CustomerID`, `EmployeeID`, `OrderDate`, `ShipperID`) VALUES
 (10248, 90, 5, '1996-07-04', 3),
 (10249, 81, 6, '1996-07-05', 1),
 (10250, 34, 4, '1996-07-08', 2),
@@ -405,7 +405,7 @@ INSERT INTO `orders` (`OrderID`, `CustomerID`, `EmployeeID`, `OrderDate`, `Shipp
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_details`
+-- Table structure for table `OrderDetails`
 --
 
 CREATE TABLE `OrderDetails` (
@@ -416,10 +416,10 @@ CREATE TABLE `OrderDetails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `order_details`
+-- Dumping data for table `OrderDetails`
 --
 
-INSERT INTO `order_details` (`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`) VALUES
+INSERT INTO `OrderDetails` (`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`) VALUES
 (1, 10248, 11, 12),
 (2, 10248, 42, 10),
 (3, 10248, 72, 5),
@@ -942,7 +942,7 @@ INSERT INTO `order_details` (`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Table structure for table `Products`
 --
 
 CREATE TABLE `Products` (
@@ -955,10 +955,10 @@ CREATE TABLE `Products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `products`
+-- Dumping data for table `Products`
 --
 
-INSERT INTO `products` (`ProductID`, `ProductName`, `SupplierID`, `CategoryID`, `Unit`, `Price`) VALUES
+INSERT INTO `Products` (`ProductID`, `ProductName`, `SupplierID`, `CategoryID`, `Unit`, `Price`) VALUES
 (1, 'Chais', 1, 1, '10 boxes x 20 bags', 18),
 (2, 'Chang', 1, 1, '24 - 12 oz bottles', 19),
 (3, 'Aniseed Syrup', 1, 2, '12 - 550 ml bottles', 10),
@@ -1040,7 +1040,7 @@ INSERT INTO `products` (`ProductID`, `ProductName`, `SupplierID`, `CategoryID`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shippers`
+-- Table structure for table `Shippers`
 --
 
 CREATE TABLE `Shippers` (
@@ -1050,10 +1050,10 @@ CREATE TABLE `Shippers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `shippers`
+-- Dumping data for table `Shippers`
 --
 
-INSERT INTO `shippers` (`ShipperID`, `ShipperName`, `Phone`) VALUES
+INSERT INTO `Shippers` (`ShipperID`, `ShipperName`, `Phone`) VALUES
 (1, 'Speedy Express', '(503) 555-9831'),
 (2, 'United Package', '(503) 555-3199'),
 (3, 'Federal Shipping', '(503) 555-9931');
@@ -1061,7 +1061,7 @@ INSERT INTO `shippers` (`ShipperID`, `ShipperName`, `Phone`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suppliers`
+-- Table structure for table `Suppliers`
 --
 
 CREATE TABLE `Suppliers` (
@@ -1076,10 +1076,10 @@ CREATE TABLE `Suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `suppliers`
+-- Dumping data for table `Suppliers`
 --
 
-INSERT INTO `suppliers` (`SupplierID`, `SupplierName`, `ContactName`, `Address`, `City`, `PostalCode`, `Country`, `Phone`) VALUES
+INSERT INTO `Suppliers` (`SupplierID`, `SupplierName`, `ContactName`, `Address`, `City`, `PostalCode`, `Country`, `Phone`) VALUES
 (1, 'Exotic Liquid', 'Charlotte Cooper', '49 Gilbert St.', 'Londona', 'EC1 4SD', 'UK', '(171) 555-2222'),
 (2, 'New Orleans Cajun Delights', 'Shelley Burke', 'P.O. Box 78934', 'New Orleans', '70117', 'USA', '(100) 555-4822'),
 (3, 'Grandma Kelly\'s Homestead', 'Regina Murphy', '707 Oxford Rd.', 'Ann Arbor', '48104', 'USA', '(313) 555-5735'),
@@ -1115,58 +1115,58 @@ INSERT INTO `suppliers` (`SupplierID`, `SupplierName`, `ContactName`, `Address`,
 --
 
 --
--- Indexes for table `categories`
+-- Indexes for table `Categories`
 --
-ALTER TABLE `categories`
+ALTER TABLE `Categories`
   ADD PRIMARY KEY (`CategoryID`);
 
 --
--- Indexes for table `customers`
+-- Indexes for table `Customers`
 --
-ALTER TABLE `customers`
+ALTER TABLE `Customers`
   ADD PRIMARY KEY (`CustomerID`);
 
 --
--- Indexes for table `employees`
+-- Indexes for table `Employees`
 --
-ALTER TABLE `employees`
+ALTER TABLE `Employees`
   ADD PRIMARY KEY (`EmployeeID`);
 
 --
--- Indexes for table `orders`
+-- Indexes for table `Orders`
 --
-ALTER TABLE `orders`
+ALTER TABLE `Orders`
   ADD PRIMARY KEY (`OrderID`),
   ADD KEY `CustomerID` (`CustomerID`),
   ADD KEY `EmployeeID` (`EmployeeID`),
   ADD KEY `ShipperID` (`ShipperID`);
 
 --
--- Indexes for table `order_details`
+-- Indexes for table `OrderDetails`
 --
-ALTER TABLE `order_details`
+ALTER TABLE `OrderDetails`
   ADD PRIMARY KEY (`OrderDetailID`),
   ADD KEY `OrderID` (`OrderID`),
   ADD KEY `ProductID` (`ProductID`);
 
 --
--- Indexes for table `products`
+-- Indexes for table `Products`
 --
-ALTER TABLE `products`
+ALTER TABLE `Products`
   ADD PRIMARY KEY (`ProductID`),
   ADD KEY `CategoryID` (`CategoryID`),
   ADD KEY `SupplierID` (`SupplierID`);
 
 --
--- Indexes for table `shippers`
+-- Indexes for table `Shippers`
 --
-ALTER TABLE `shippers`
+ALTER TABLE `Shippers`
   ADD PRIMARY KEY (`ShipperID`);
 
 --
--- Indexes for table `suppliers`
+-- Indexes for table `Suppliers`
 --
-ALTER TABLE `suppliers`
+ALTER TABLE `Suppliers`
   ADD PRIMARY KEY (`SupplierID`);
 
 --
@@ -1174,51 +1174,51 @@ ALTER TABLE `suppliers`
 --
 
 --
--- AUTO_INCREMENT for table `categories`
+-- AUTO_INCREMENT for table `Categories`
 --
-ALTER TABLE `categories`
+ALTER TABLE `Categories`
   MODIFY `CategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT for table `Customers`
 --
-ALTER TABLE `customers`
+ALTER TABLE `Customers`
   MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
--- AUTO_INCREMENT for table `employees`
+-- AUTO_INCREMENT for table `Employees`
 --
-ALTER TABLE `employees`
+ALTER TABLE `Employees`
   MODIFY `EmployeeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT for table `Orders`
 --
-ALTER TABLE `orders`
+ALTER TABLE `Orders`
   MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10444;
 
 --
--- AUTO_INCREMENT for table `order_details`
+-- AUTO_INCREMENT for table `OrderDetails`
 --
-ALTER TABLE `order_details`
+ALTER TABLE `OrderDetails`
   MODIFY `OrderDetailID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=519;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT for table `Products`
 --
-ALTER TABLE `products`
+ALTER TABLE `Products`
   MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
--- AUTO_INCREMENT for table `shippers`
+-- AUTO_INCREMENT for table `Shippers`
 --
-ALTER TABLE `shippers`
+ALTER TABLE `Shippers`
   MODIFY `ShipperID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `suppliers`
+-- AUTO_INCREMENT for table `Suppliers`
 --
-ALTER TABLE `suppliers`
+ALTER TABLE `Suppliers`
   MODIFY `SupplierID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
@@ -1226,26 +1226,26 @@ ALTER TABLE `suppliers`
 --
 
 --
--- Constraints for table `orders`
+-- Constraints for table `Orders`
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customers` (`CustomerID`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`EmployeeID`) REFERENCES `employees` (`EmployeeID`),
-  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`ShipperID`) REFERENCES `shippers` (`ShipperID`);
+ALTER TABLE `Orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `Customers` (`CustomerID`),
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`EmployeeID`) REFERENCES `Employees` (`EmployeeID`),
+  ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`ShipperID`) REFERENCES `Shippers` (`ShipperID`);
 
 --
--- Constraints for table `order_details`
+-- Constraints for table `OrderDetails`
 --
-ALTER TABLE `order_details`
-  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `orders` (`OrderID`),
-  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `products` (`ProductID`);
+ALTER TABLE `OrderDetails`
+  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`OrderID`) REFERENCES `Orders` (`OrderID`),
+  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`ProductID`) REFERENCES `Products` (`ProductID`);
 
 --
--- Constraints for table `products`
+-- Constraints for table `Products`
 --
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `categories` (`CategoryID`),
-  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`SupplierID`) REFERENCES `suppliers` (`SupplierID`);
+ALTER TABLE `Products`
+  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`CategoryID`) REFERENCES `Categories` (`CategoryID`),
+  ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`SupplierID`) REFERENCES `Suppliers` (`SupplierID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
