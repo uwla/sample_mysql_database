@@ -1,5 +1,5 @@
 # W3Schools MySQL Database
-This repository contains the database they use for their SQL tutorial here: https://www.w3schools.com/sql/default.asp.
+This repository contains the database W3Schools use for their SQL tutorial here: https://www.w3schools.com/sql/default.asp.
 
 I cloned the repo https://github.com/AndrejPHP/w3schools-database and did some small changes: I changed the database table names to match the table names in W3Schools website, and I added a text file containing some useful SQL commands for you to practice mysql.
 
@@ -35,7 +35,7 @@ Log in phpmyadmin. On the top navbar, click Import. In the section 'Files to Imp
 
 ## After importing the SQL file
 
-When the SQL file is executed it creates database named __w3schools__ with the following tables
+When the SQL file is executed, it creates a database named __w3schools__ with the following tables:
 
     Categories
     Customers
