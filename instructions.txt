@@ -1,0 +1,10 @@
+IMPORTING SQL FROM THE TERMINAL
+
+To enter mysql as root, type the following:
+sudo mysql
+
+Then, within mysql, type:
+source /path/to/w3schools.sql;
+
+
+
