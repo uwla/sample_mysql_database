@@ -22,7 +22,7 @@ USE `w3schools`;
 -- Table structure for table `categories`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE `Categories` (
   `CategoryID` int(11) NOT NULL,
   `CategoryName` varchar(255) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL
@@ -48,7 +48,7 @@ INSERT INTO `categories` (`CategoryID`, `CategoryName`, `Description`) VALUES
 -- Table structure for table `customers`
 --
 
-CREATE TABLE `customers` (
+CREATE TABLE `Customers` (
   `CustomerID` int(11) NOT NULL,
   `CustomerName` varchar(255) DEFAULT NULL,
   `ContactName` varchar(255) DEFAULT NULL,
@@ -161,7 +161,7 @@ INSERT INTO `customers` (`CustomerID`, `CustomerName`, `ContactName`, `Address`,
 -- Table structure for table `employees`
 --
 
-CREATE TABLE `employees` (
+CREATE TABLE `Employees` (
   `EmployeeID` int(11) NOT NULL,
   `LastName` varchar(255) DEFAULT NULL,
   `FirstName` varchar(255) DEFAULT NULL,
@@ -192,7 +192,7 @@ INSERT INTO `employees` (`EmployeeID`, `LastName`, `FirstName`, `BirthDate`, `Ph
 -- Table structure for table `orders`
 --
 
-CREATE TABLE `orders` (
+CREATE TABLE `Orders` (
   `OrderID` int(11) NOT NULL,
   `CustomerID` int(11) DEFAULT NULL,
   `EmployeeID` int(11) DEFAULT NULL,
@@ -408,7 +408,7 @@ INSERT INTO `orders` (`OrderID`, `CustomerID`, `EmployeeID`, `OrderDate`, `Shipp
 -- Table structure for table `order_details`
 --
 
-CREATE TABLE `order_details` (
+CREATE TABLE `OrderDetails` (
   `OrderDetailID` int(11) NOT NULL,
   `OrderID` int(11) DEFAULT NULL,
   `ProductID` int(11) DEFAULT NULL,
@@ -945,7 +945,7 @@ INSERT INTO `order_details` (`OrderDetailID`, `OrderID`, `ProductID`, `Quantity`
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE `Products` (
   `ProductID` int(11) NOT NULL,
   `ProductName` varchar(255) DEFAULT NULL,
   `SupplierID` int(11) DEFAULT NULL,
@@ -1043,7 +1043,7 @@ INSERT INTO `products` (`ProductID`, `ProductName`, `SupplierID`, `CategoryID`, 
 -- Table structure for table `shippers`
 --
 
-CREATE TABLE `shippers` (
+CREATE TABLE `Shippers` (
   `ShipperID` int(11) NOT NULL,
   `ShipperName` varchar(255) DEFAULT NULL,
   `Phone` varchar(255) DEFAULT NULL
@@ -1064,7 +1064,7 @@ INSERT INTO `shippers` (`ShipperID`, `ShipperName`, `Phone`) VALUES
 -- Table structure for table `suppliers`
 --
 
-CREATE TABLE `suppliers` (
+CREATE TABLE `Suppliers` (
   `SupplierID` int(11) NOT NULL,
   `SupplierName` varchar(255) DEFAULT NULL,
   `ContactName` varchar(255) DEFAULT NULL,
