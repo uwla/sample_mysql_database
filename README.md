@@ -1,4 +1,4 @@
-# W3Schools MySQL Database
+# W3Schools MySQL Tutorials Database
 This repository contains the database W3Schools use for their SQL tutorial here: https://www.w3schools.com/sql/default.asp.
 
 I cloned the repo https://github.com/AndrejPHP/w3schools-database and did some small changes: I changed the database table names to match the table names in W3Schools website, and I added a text file containing some useful SQL commands for you to practice mysql.
