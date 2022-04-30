@@ -1,20 +1,36 @@
 # W3Schools MySQL Tutorials Database
 
-This repository contains the database W3Schools uses for [their SQL tutorial](https://www.w3schools.com/sql/default.asp).
+This repository contains the database used in
+[W3Schools SQL tutorials](https://www.w3schools.com/sql/default.asp).
 
-I cloned the repo https://github.com/AndrejPHP/w3schools-database and did some small changes: I changed the database table names to match the table names in W3Schools website, and I added a text file containing some useful SQL commands for practicing mysql.
+I cloned the repo https://github.com/AndrejPHP/w3schools-database and did some
+small changes:
 
-I exported the database to csv files in the [csv direcotry](./csv). That way,i you can use them if you prefer to work with `csv` files instead of creating a `MySQL` database.
+- change table names to match the ones on W3School's website
+- added a text file containing some [query challenges](./queries.txt)
+and [its answersheet](./queries-answersheet.sql) 
+- exported database to [csv files](./csv) 
 
-## About W3Schools
+About the last one, you can play with the `csv` files instead of creating a
+`MySQL` database. There is a command-line software called `textql` that allows
+you to execute SQL commands against structured text such as `csv`.
 
-I'm not associated with W3Schools, but I have to give them a big thanks. They provide excellent tutorials on the topic of web development, like the [MySQL tutorials on their website](https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all).
+## Dataset
+
+The dataset consists of the following tables with their respective columns:
+
+- **Categories**: ID, Name, Description
+- **Customers**: ID, Name, Contact, Address, City, PostalCode, Country
+- **Employees**: EmployeeID, LastName, FirstName, Birthdate, Photo, Notes
+- **OrderDetails**: ID, OrderID, ProductID, Quantity
+- **Orders**: ID, CustomerID, EmployeeID, Date, Shipper ID
+- **Products**: ID, Name, SupplierID, CategoryID, Unit, Price
+- **Shippers**: ID, Name, Phone
+- **Suppliers**: ID, Name, Contact, Address, City, PostalCode, Country, Phone
 
 ## Importing the SQL file
 
-### Via Terminal
-
-First, enter mysql in the terminal:
+First, enter `mysql` in the terminal:
 
 ```
 myqsl -u yourUserName -p
@@ -31,33 +47,8 @@ sudo mysql
 Next, within mysql, type:
 
 ```
-source /absolute/path/to/w3schools.sql;
+source /path/to/w3schools.sql;
 ```
 
-Of course, you need to replace '/absolute/path/to/w3schools.sql' with the absolute path of the file in your computer.
-
-### Via phpmyadmin
-
-Log in phpmyadmin. On the top navbar, click Import. In the section 'Files to Import' click in the browser button and select the SQL file.
-
-## After importing the SQL file
-
-When the SQL file is executed, it creates a database named __w3schools__ with the following tables:
-
-- Categories
-- Customers
-- Employees
-- Orders
-- OrderDetails
-- Products
-- Shippers
-- Suppliers
-    
-and inserts the respective data. 
-
-You can change the database name if you want by modifying these 2 lines of code
-
-```mysql
-CREATE DATABASE IF NOT EXISTS `w3schools`;
-USE `w3schools`;
-```
+Of course, you need to replace `/path/to/w3schools.sql` with the
+absolute path of the file in your computer.
