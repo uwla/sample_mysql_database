@@ -1,12 +1,10 @@
- 1. Show the total cost for the orders
- 2. Show the customer name for the orders
- 3. Show the total cost for the orders
- 4. Show the total cost for the orders
- 5. Show the total amount spent by a customer
- 6. Show how many customers per country
- 7. Show the total sales by country
- 8. Show the total sales by employee
- 9. Show the how many products were sold for each product
-10. Show the total sales by product
-11. Show how many products were sold for each category
-12. Show the total sales by category
+Show the total cost for each order
+Show the customer name for the orders
+Show the total amount spent by each customer
+Show how many customers per country
+Show the total sales by country
+Show the total sales by employee
+Show how many products were sold for each product
+Show the total sales by product
+Show how many products were sold for each category
+Show the total sales by category

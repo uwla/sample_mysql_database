@@ -1,38 +1,30 @@
-/* run line below if you are using mariadb instead of oracle */
-/* SET SQL_MODE='Oracle'; */
+/* 1. Show the total cost for each order */
+select OrderID, sum(Quantity*Price) as "total cost" from Products as P, OrderDetails as O where O.ProductID = P.ProductID group by OrderID;
 
-/* show the total cost for the given order */
-SELECT OrderDetails.OrderID, SUM(OrderDetails.Quantity * Products.Price) as "Total Order Cost" FROM OrderDetails INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID GROUP BY OrderDetails.OrderID;
+/* 2. Show the customer name for the orders */
+select CustomerName, OrderID from Customers as C, Orders as O where  C.CustomerID = O.CustomerID;
 
-/* show the customer name for the given order */
-SELECT Orders.OrderID, Customers.CustomerName FROM Orders INNER JOIN OrderDetails ON OrderDetails.OrderID = Orders.OrderID INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID GROUP BY Orders.OrderID;
+/* 3. Show the total amount spent by each customer */
+select CustomerName, sum(Price*Quantity) as "total spent" from Customers as C, OrderDetails as OD, Orders as O, Products as P where C.CustomerID = O.CustomerID and OD.ProductID = P.ProductID and OD.OrderID = O.OrderID  group by C.CustomerID order by "total spent" desc;
 
-/* show the total cost for the given order */
-SELECT OrderDetails.OrderID, Orders.CustomerID, SUM(OrderDetails.Quantity * Products.Price) as Total FROM OrderDetails INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID INNER JOIN Orders ON OrderDetails.OrderID = Orders.OrderId GROUP BY OrderDetails.OrderId;
+/* 4. Show how many customers per country */
+select Country, count(*) as "number of customers" from Customers group by Country order by "number of customers" desc;
 
-/* show the total cost for the given order */
-SELECT OrderDetails.OrderID, Orders.CustomerID, Customers.CustomerName, SUM(OrderDetails.Quantity * Products.Price) as "Total Order Cost" FROM OrderDetails INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID INNER JOIN Orders ON OrderDetails.OrderID = Orders.OrderID INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID GROUP BY OrderDetails.OrderID ORDER BY Orders.CustomerID;
+/* 5. Show the total sales by country */
+select Country, sum(Price*Quantity) as "total sales" from Customers as C, OrderDetails as OD, Orders as O, Products as P where C.CustomerID = O.CustomerID and OD.ProductID = P.ProductID and OD.OrderID = O.OrderID group by Country order by "total sales" desc;
 
-/* show the total amount spent by a customer */
-SELECT CustomerID, CustomerName, SUM(TOTAL) AS "Total amount spent" FROM (SELECT Orders.CustomerID, Customers.CustomerName, SUM(OrderDetails.Quantity * Products.Price) as TOTAL FROM OrderDetails INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID INNER JOIN Orders ON OrderDetails.OrderID = Orders.OrderID INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID GROUP BY OrderDetails.OrderID) GROUP BY CustomerID ORDER BY "Total amount spent" DESC;
+/* 6. Show the total sales by employee */
+select E.FirstName, E.LastName, sum(Price*Quantity) as "total sold" from OrderDetails as OD, Orders as O, Products as P, Employees as E where OD.ProductID = P.ProductID and OD.OrderID = O.OrderID and E.EmployeeID = O.EmployeeID  group by O.EmployeeID order by "total sold" desc;
 
-/* show how many customers per country */
-SELECT Country, COUNT(Country) AS "Total Costumers" FROM Customers GROUP BY Country ORDER BY Country DESC;
+/* 7. Show how many products were sold for each product */
+select P.ProductName, sum(Quantity) as "total amount" from OrderDetails as OD, Orders as O, Products as P where OD.ProductID = P.ProductID and OD.OrderID = O.OrderID group by P.ProductID order by "total amount" desc;
 
-/* show the total sales by country */
-SELECT Country, SUM(TOTAL) AS "Total sales" FROM (SELECT Orders.CustomerID, Customers.Country, SUM(OrderDetails.Quantity * Products.Price) as TOTAL FROM OrderDetails INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID INNER JOIN Orders ON OrderDetails.OrderID = Orders.OrderID INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID GROUP BY OrderDetails.OrderID) AS CustomersOrdersPrice GROUP BY COUNTRY ORDER BY "Total sales" DESC;
+/* 8. Show the total sales by product */
+select P.ProductName, sum(Price*Quantity) as "total sold" from OrderDetails as OD, Orders as O, Products as P where OD.ProductID = P.ProductID and OD.OrderID = O.OrderID group by P.ProductID order by "total sold" desc;
 
-/* show the total sales by employee */
-SELECT Employee, SUM("ORDER PRICE") AS "Total Sales" FROM (SELECT Orders.OrderID, Employees.FirstName as Employee, SUM(OrderDetails.Quantity * Products.PRICE) AS "ORDER PRICE" FROM Orders INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID INNER JOIN OrderDetails ON OrderDetails.OrderID = Orders.OrderID INNER JOIN Products ON OrderDetails.ProductID = Products.ProductID GROUP BY Orders.OrderID) AS EmployeesSales GROUP BY Employee ORDER BY "Total Sales" DESC;
+/* 9. Show how many products were sold for each category */
+select C.CategoryName, sum(Quantity) as "total quantity sold" from Categories as C, OrderDetails as OD, Orders as O, Products as P where OD.ProductID = P.ProductID and OD.OrderID = O.OrderID and P.CategoryID = C.CategoryID group by C.CategoryID order by "total quantity sold" desc;
 
-/* show the how many products were sold for each product */
-SELECT OrderDetails.ProductID, Products.ProductName, SUM(Quantity) AS "Quantity sold" FROM OrderDetails INNER JOIN Products ON Products.ProductID = OrderDetails.ProductID GROUP BY OrderDetails.ProductID ORDER BY "Quantity sold" DESC;
+/* 10. Show the total sales by category */
+select C.CategoryName, sum(Price*Quantity) as "total sold" from Categories as C, OrderDetails as OD, Orders as O, Products as P where OD.ProductID = P.ProductID and OD.OrderID = O.OrderID and P.CategoryID = C.CategoryID group by C.CategoryID order by "total sold" desc;
 
-/* show the total sales by product */
-SELECT OrderDetails.ProductID, Products.ProductName, SUM(Quantity) AS "Quantity sold", SUM(Quantity * Price) AS "Sales in dollars" From OrderDetails INNER JOIN Products ON Products.ProductID = OrderDetails.ProductID GROUP BY OrderDetails.ProductID ORDER BY "Sales in dollars" DESC;
-
-/* show how many products were sold for each category */
-SELECT Categories.CategoryID, Categories.CategoryName, SUM("Product sales") AS "Total sales" FROM (SELECT OrderDetails.ProductID, Products.CategoryID, SUM(Quantity) AS "Product sales" From OrderDetails INNER JOIN Products ON Products.ProductID = OrderDetails.ProductID GROUP BY OrderDetails.ProductID) AS ProductsSales INNER JOIN Categories ON ProductsSales.CategoryID = Categories.CategoryID GROUP BY Categories.CategoryID;
-
-/* show the total sales by category */
-SELECT Categories.CategoryID, Categories.CategoryName, SUM(Sales) AS "Total sales" FROM (SELECT OrderDetails.ProductID, CategoryID, SUM(Quantity * Price) AS "Sales" From OrderDetails INNER JOIN Products ON Products.ProductID = OrderDetails.ProductID GROUP BY OrderDetails.ProductID) AS ProductsSales INNER JOIN Categories ON ProductsSales.CategoryID = Categories.CategoryID GROUP BY ProductsSales.CategoryID ORDER BY "Total sales" DESC;
