@@ -1,14 +1,14 @@
-# W3Schools MySQL Tutorials Database
+# Sample MySQL Database
 
 This repository contains the database used in
 [W3Schools SQL tutorials](https://www.w3schools.com/sql/default.asp).
 
-I cloned the repo https://github.com/AndrejPHP/w3schools-database and did some
-small changes:
+I cloned the repo https://github.com/AndrejPHP/w3schools-database and made
+some changes:
 
-- change table names to match the ones on W3School's website
+- changed table names to match the ones on W3School's website
 - added a text file containing some [query challenges](./queries.txt)
-and [its answersheet](./queries-answersheet.sql) 
+and [its solutions](./queries-answersheet.sql) 
 - exported database to [csv files](./csv) 
 
 About the last one, you can play with the `csv` files instead of creating a
@@ -30,9 +30,7 @@ The dataset consists of the following tables with their respective columns:
 
 ## Importing the SQL file
 
-First, enter `mysql` in the terminal:
-
-```
+```shell
 myqsl -u yourUserName -p
 ```
 
@@ -40,13 +38,13 @@ You'll be asked to type your password. Then type your password.
 
 Alternatively, you can enter mysql as root. Type the following:
 
-```
+```shell
 sudo mysql
 ```
 
 Next, within mysql, type:
 
-```
+```shell
 source /path/to/w3schools.sql;
 ```
 
